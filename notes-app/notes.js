@@ -8,7 +8,7 @@ const getNotes = function () {
   };
   
 
-const addNote = function (title, body) {
+const addNote = (title, body) => {
   const notes = loadNotes(); 
   const duplicateNotes = notes.filter((note) => {
     return note.title === title;
@@ -21,18 +21,18 @@ const addNote = function (title, body) {
     });
     saveNotes(notes);
    
-    console.log("new note added");
+    console.log(chalk.green.inverse('new note added'));
   } else {
-    console.log("note title taken");
+    console.log(chalk.red.inverse("note title taken"));
   }  
 };
 
-const saveNotes = function (notes) {
+const saveNotes = (notes) => {
   const dataJSON = JSON.stringify(notes);
   fs.writeFileSync('notes.json',dataJSON);
 };
 
-const loadNotes = function () {
+const loadNotes = () => {
   try {
     const dataBuffer = fs.readFileSync('notes.json');
     const dataJSON = dataBuffer.toString();
@@ -43,7 +43,7 @@ const loadNotes = function () {
   }
 };
 
-const removeNote = function (title) {
+const removeNote = (title) => {
   const notes = loadNotes();
   const notesToKeep = removeIndividualNote(notes,title);  
   if (notesToKeep.length === notes.length) {
@@ -54,7 +54,7 @@ const removeNote = function (title) {
   }  
 };
 
-const removeIndividualNote = function (notesArray,removeValue) {
+const removeIndividualNote = (notesArray,removeValue) => {
   return notesArray.filter((note) => {
     return note.title !== removeValue;
   }); 
