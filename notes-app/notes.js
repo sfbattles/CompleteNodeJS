@@ -16,14 +16,13 @@ const readNote = (title) => {
    }
 };
   
-
 const addNote = (title, body) => {
   const notes = loadNotes(); 
   const duplicateNote = notes.find((note) =>{
     return note.title === title;
-  });
+});
 
-  if (!duplicateNote) {  //if no match
+if (!duplicateNote) {  //if no match
     notes.push({
       title: title,
       body: body
