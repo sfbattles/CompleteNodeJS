@@ -7,7 +7,8 @@ const readNote = (title) => {
    const foundNote = notes.find((note) => {
      return(note.title === title); 
    });
-   console.log('richard' + foundNote);
+debugger   
+  // console.log('richard' + foundNote);
    if (!foundNote) {
      console.log(chalk.red.inverse("No Note Found"))
    } else {
