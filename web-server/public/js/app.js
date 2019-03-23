@@ -8,7 +8,7 @@ messageOne.textContent = ''
 weatherForm.addEventListener('submit',(e) => {
     e.preventDefault();
     const address = searchelement.value
-    const geocodeurl = `http://localhost:3000/weather?address=${address}`;
+    const geocodeurl = `/weather?address=${address}`;
     messageOne.textContent = 'Loading Results . . .'    
     messageTwo.textContent = ''
     fetch(geocodeurl).then((response) => {
