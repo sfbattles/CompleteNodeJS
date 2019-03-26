@@ -13,29 +13,28 @@ MongoClient.connect(connectionURL, {
     //'Connection Established' if code gets here.
     const db = client.db(databaseName)
 
-    db.collection('tasks').updateMany({completed: false},
-        { 
-            $set: { 
-            completed: true 
-            } 
-        }).then((result) => {
-            console.log(result)
-        }).catch((error) => {
-            console.log(error)
-         })
+    // db.collection('users').deleteMany({ 
+    //     age: { $gt: 27 } 
+    // })
+    // .then((result) => {
+    //   console.log(result.deletedCount)
+    // }).catch((error) => {
+    //   console.log(error)
+    // })  
+    //  db.collection('tasks').insertOne({
+    //      description: 'pet cat',
+    //      completed: false
+    //  }).then((result) => {
+    //    console.log(result)
+    //  }).catch((error) => {
+    //    console.log(error)  
+    //  })
 
-//    db.collection('users').updateOne({
-//         _id: new ObjectID("5c96cfe34d20619be4ca129c")
-//     },{
-//         // $set: {
-//         //     name: 'Mike'
-//         // }
-//         $inc: {
-//             age: 1
-//         }
-//     }).then((result) => {
-//        console.log(result)
-//     }).catch((error) => {
-//        console.log(error)
-//     })
+     db.collection('tasks').deleteOne({
+         description: 'get milk'
+     }).then((result) => {
+         console.log(result)
+     }).catch((error) => {
+         console.error(error)
+     }) 
 })
